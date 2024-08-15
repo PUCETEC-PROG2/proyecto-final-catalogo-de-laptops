@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Ventas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(13, 13, 15);
+            color: white;
+        }
+
+        h1.text-white-heading {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 60px; /* Ajusta según la altura de tu navbar */
+            margin-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .col {
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+
+        .card {
+            background-color: #222;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .card-text {
+            margin: 0.5rem 0;
+            color: #ccc;
+        }
+
+        .btn {
+            display: none; /* Oculta los botones de editar y eliminar */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-white-heading">Ventas</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for sale in sales %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ sale.product.picture.url }}" class="card-img-top" alt="{{ sale.product.model }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sale.product.brand }} {{ sale.product.model }}</h5>
+                        <p class="card-text">Procesador: {{ sale.product.procesador }}</p>
+                        <p class="card-text">Precio: ${{ sale.product.precio }}</p>
+                        <p class="card-text">Voltaje: {{ sale.product.voltaje }}</p>
+                        <p class="card-text">Disco: {{ sale.product.disco }}</p>
+                        <p class="card-text">Cliente: {{ sale.client }}</p>
+                        <p class="card-text">Fecha: {{ sale.date }}</p>
+                        <p class="card-text">Cantidad: {{ sale.quantity }}</p>
+                        <a href="{% url 'laptops:edit_sale' id=sale.id %}" class="btn btn-primary">
+                            <i class="fa-solid fa-pencil"></i> Editar
+                        </a>
+                        <a href="{% url 'laptops:delete_sale' id=sale.id %}" class="btn btn-danger">
+                            <i class="fa-solid fa-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock content %}
