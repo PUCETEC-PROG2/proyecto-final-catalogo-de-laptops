@@ -129,7 +129,7 @@
             }
         }
 
-        /* Estilo para ocultar el botón de agregar producto */
+        /* Estilo para ocultar el botón de agregar clientes */
         .hide-btn {
             display: none;
         }
@@ -155,7 +155,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="{% url 'laptops:client_list' %}">Listado de Clientes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'laptops:add_client' %}">Agregar Clientes</a></li>
+                            <li><a class="dropdown-item hide-btn" href="{% url 'laptops:add_client' %}">Agregar Clientes</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown active">

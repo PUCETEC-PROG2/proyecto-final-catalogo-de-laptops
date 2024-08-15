@@ -1,0 +1,47 @@
+**Instalación de gestor de ambientes virtuales de Python
+sudo apt install python3-venv
+Creación del ambiente virtual
+**python3 -m venv .venv
+**Activación del ambiente virtual
+source .venv/bin/activate
+**Instalación de dependencias de este proyecto
+pip3 install -r requirements.txt
+**En caso de querer desactivar el ambiente usar
+deactivate
+***Iniciar servidor
+Linux o MacOS
+
+python3 manage.py runserver
+***Crear nueva aplicación
+
+** Nota: ** No olvidar el punto "." para que la aplicación se cree en el directorio raíz
+**Linux o MacOS
+
+python3 manage.py startapp <nombre_de_la_aplicacion> .
+
+***Crear Súper Usuario
+Linux o MacOS
+
+python3 manage.py createsuperuser
+***Generar archivos de migración
+Linux o MacOS
+
+python3 manage.py makemigrations
+***Migrar a bases de datos
+Linux o MacOS
+
+python3 manage.py migrateLinux o MacOS
+
+python3 manage.py sqlmigrate pokedex 0001
+***Almacenar depdendencias y librerías instaladas
+Linux o MacOS
+
+pip3 freeze > requirements.txt
+
+
+
+
+
+
+
+

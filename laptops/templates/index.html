@@ -12,7 +12,10 @@
           <div class="custom-content">
             <h3>Clientes</h3>
             <p>Consultar la base de datos de los clientes</p>
-            <a href="{% url 'laptops:client_list' %}" class="btn">Abrir</a>
+            <div class="btn-group">
+              <a href="{% url 'laptops:client_list' %}" class="btn">Abrir</a>
+              <a href="{% url 'laptops:add_client' %}" class="btn btn-add">Agregar Cliente</a>
+            </div>
           </div>
         </div>
       </div>
